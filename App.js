@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
 
+import SearchHandler from './SearchHandler';
+
 class App extends Component {
   render() {
     return (
@@ -66,10 +68,7 @@ const RootTabs = TabNavigator({
     screen: HomeScreen,
   },
   Profile: {
-    screen: ProfileScreen,
-  },
-  Profile: {
-    screen: AnotherScreen,
+    screen: SearchHandler,
   }
 });
 

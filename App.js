@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.descrption}>Hello world!</Text>
+        <Text style={style.description}>Hello Janis!</Text>
       </View>
     );
   }
@@ -30,12 +30,50 @@ const style = StyleSheet.create({
       alignItems: 'center'
     },
     description: {
-      fontSize: 18,
+      fontSize: 38,
       textAlign: 'center',
-      color: '#656565',
-      marginTop: 65,
+      color: 'navy',
+      marginTop: 10,
   },
 })
+
+
+//start JANIS HAS NO IDEA WHAT SHE'S DOING
+
+import { TabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const HomeScreen = () => (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>You had me at Hello World.</Text>
+  </View>
+);
+
+const ProfileScreen = () => (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>History</Text>
+  </View>
+);
+
+const AnotherScreen = () => (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>History</Text>
+  </View>
+);
+
+const RootTabs = TabNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+  Profile: {
+    screen: ProfileScreen,
+  },
+  Profile: {
+    screen: AnotherScreen,
+  }
+});
+
+export default RootTabs;
 
 //skip this line if using Create React Native App
 //AppRegistry.registerComponent('AwesomeProject', () => HelloWorldApp);

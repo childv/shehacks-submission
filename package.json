@@ -27,11 +27,7 @@
     "react-google-map": "^3.1.0",
     "react-google-maps": "^9.2.2",
     "react-native": "^0.49.5",
-<<<<<<< HEAD
-    "react-navigation": "1.0.0-beta.15",
-    "realm": "^2.2.6"
-=======
+    "realm": "^2.2.6",
     "react-navigation": "^1.0.0-beta.15"
->>>>>>> b3a8d95aa086f880a57f0bc5e2529161dedef747
   }
 }

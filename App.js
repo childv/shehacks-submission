@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
-import { AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage, Platform, StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      cut: false
+    };
+  }
+
+
+  cutCheese() {
+    this.setState({ cut: true })
+  }
+
   render() {
+    // BELOW RETURN WILL SHOW ON SCREEN
     return (
       <View style={style.container}>
-        <Text style={style.descrption}>Hello world!</Text>
+        <TextInput
+          style={{height: 60}}
+          placeholder="What are you looking for?"
+          onChangeText={(text) => this.setState({text})}
+        />
+        <Text style={style.descrption}>
+        </Text>
       </View>
+
     );
   }
 }
 
 const style = StyleSheet.create({
-    header: {
-        ...Platform.select({
-           android: {
-           backgroundColor: '#e1e8ee',
-           }
-        })
-    },
-    indicator: {
-        backgroundColor: '#0B5091'
-    },
     container: {
       ...StyleSheet.absoluteFillObject,
       flex: 1,

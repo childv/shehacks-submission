@@ -73,7 +73,7 @@ const HistoryScreen = () => (
 
 const RootTabs = TabNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: SearchPage,
     navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor, focused }) => (

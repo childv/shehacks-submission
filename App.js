@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
 import { TabNavigator } from 'react-navigation';
-<<<<<<< HEAD
-=======
-
 import SearchHandler from './SearchHandler';
->>>>>>> b80723e1c4cbe440fdc3909284d0c5cb07d56874
 import SearchScreen from './searchscreen';
 
 

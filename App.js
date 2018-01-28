@@ -1,40 +1,23 @@
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
-import { AsyncStorage, Platform, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+//import { AsyncStorage, Platform, StyleSheet, Text, View, TextInput } from 'react-native';
 import { TabNavigator } from 'react-navigation';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //import SearchHandler from './SearchHandler';
-import SearchScreen from './searchscreen';
+//import SearchScreen from './searchscreen';
 
 
 
 class App extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        text: '',
-        cut: false
-    };
+  render() {
+    return (
+      <View style={style.container}>
+      </View>
+    );
   }
-  // render() {
-  //   // BELOW RETURN WILL SHOW ON SCREEN
-  //   return (
-  //   );
-  // }
 }
 
-/*
-      <View style={style.container}>
-        <TextInput
-          style={{height: 60}}
-          placeholder="What are you looking for?"
-          onChangeText={(text) => this.setState({text})}
-        />
-        <Text style={style.descrption}>
-        </Text>
-      </View>
-*/
 
 const style = StyleSheet.create({
     container: {
@@ -49,33 +32,69 @@ const style = StyleSheet.create({
       color: 'navy',
       marginTop: 10,
   },
+  pretty: {
+    flex: 3,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 })
 
+// TABS 
+
 const HomeScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>You had me at Hello World.</Text>
+  <View style={style.pretty}>
+    <Text>Buy Bulk Buddy
+    </Text>
+    <View>
+        <Image 
+        style={{width: 300, height: 300}}
+        source={require('./my-icon.png')}
+        />
+    </View>
   </View>
 );
 
-const ProfileScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>History</Text>
+const HelpScreen = () => (
+  <View style={style.pretty}>
+    <Text>What can your Bulk Buddy order for you today?</Text>
+    <Button
+      onPress={() => {
+      Alert.alert('Try again buddy!');
+      }}
+    title="Search"
+    />
   </View>
 );
 
-const AnotherScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>History</Text>
+const ConnectScreen = () => (
+  <View style={style.pretty}>
+    <Text>Connect with others ordering the same item.</Text>
+  </View>
+);
+
+const HistoryScreen = () => (
+  <View style={style.pretty}>
+    <Text>Order History</Text>
   </View>
 );
 
 const RootTabs = TabNavigator({
   Home: {
-    screen: SearchScreen,
+    screen: HelpScreen,
   },
-  Profile: {
-    screen: ProfileScreen,
-  }
+  Search: {
+    screen: HelpScreen,
+  },
+  Connect: {
+    screen: ConnectScreen,
+  },
+  History: {
+    screen: HistoryScreen
+  },
 });
 
 export default RootTabs;
+
+
+
+// FACEBOOK LOGIN

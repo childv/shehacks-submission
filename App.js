@@ -80,7 +80,7 @@ const HistoryScreen = () => (
 
 const RootTabs = TabNavigator({
   Home: {
-    screen: HelpScreen,
+    screen: HomeScreen,
   },
   Search: {
     screen: HelpScreen,

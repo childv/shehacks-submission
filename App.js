@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
-import { AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+import { TabNavigator } from 'react-navigation';
+import SearchHandler from './SearchHandler';
+import SearchScreen from './searchscreen';
 
-export default class App extends Component {
+
+class App extends Component {
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.descrption}>Hello world!</Text>
       </View>
     );
   }
 }
 
+
 const style = StyleSheet.create({
-    header: {
-        ...Platform.select({
-           android: {
-           backgroundColor: '#e1e8ee',
-           }
-        })
-    },
-    indicator: {
-        backgroundColor: '#0B5091'
-    },
     container: {
       ...StyleSheet.absoluteFillObject,
       flex: 1,
@@ -30,12 +24,61 @@ const style = StyleSheet.create({
       alignItems: 'center'
     },
     description: {
-      fontSize: 18,
+      fontSize: 38,
       textAlign: 'center',
-      color: '#656565',
-      marginTop: 65,
+      color: 'navy',
+      marginTop: 10,
+  },
+  pretty: {
+    flex: 3,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 })
 
-//skip this line if using Create React Native App
-//AppRegistry.registerComponent('AwesomeProject', () => HelloWorldApp);
+// TABS 
+const HomeScreen = () => (
+  <View style={style.pretty}>
+    <Text>
+    Buy Bulk Buddy</Text>
+    <View>
+      <Image
+        source={require('./my-icon.png')}
+        style={{width: 300, height: 250}}
+      />
+    </View>
+  </View>
+);
+
+const ConnectScreen = () => (
+  <View style={style.pretty}>
+    <Text>Connect with others ordering the same item.</Text>
+  </View>
+);
+
+const HistoryScreen = () => (
+  <View style={style.pretty}>
+    <Text>Order History</Text>
+  </View>
+);
+
+const RootTabs = TabNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+  Search: {
+    screen: SearchScreen,
+  },
+  Connect: {
+    screen: ConnectScreen,
+  },
+  History: {
+    screen: HistoryScreen
+  },
+});
+
+export default RootTabs;
+
+
+
+// FACEBOOK LOGIN

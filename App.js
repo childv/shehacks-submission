@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { AsyncStorage, Platform, StyleSheet, Text, View, TextInput } from 'react-native';
+import { TabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '',
-      cut: false
+//import SearchHandler from './SearchHandler';
+import SearchScreen from './searchscreen';
+
+
+
+class App extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        text: '',
+        cut: false
     };
   }
+  // render() {
+  //   // BELOW RETURN WILL SHOW ON SCREEN
+  //   return (
+  //   );
+  // }
+}
 
-
-  cutCheese() {
-    this.setState({ cut: true })
-  }
-
-  render() {
-    // BELOW RETURN WILL SHOW ON SCREEN
-    return (
+/*
       <View style={style.container}>
         <TextInput
           style={{height: 60}}
@@ -28,10 +34,7 @@ export default class App extends Component {
         <Text style={style.descrption}>
         </Text>
       </View>
-
-    );
-  }
-}
+*/
 
 const style = StyleSheet.create({
     container: {
@@ -41,12 +44,38 @@ const style = StyleSheet.create({
       alignItems: 'center'
     },
     description: {
-      fontSize: 18,
+      fontSize: 38,
       textAlign: 'center',
-      color: '#656565',
-      marginTop: 65,
+      color: 'navy',
+      marginTop: 10,
   },
 })
 
-//skip this line if using Create React Native App
-//AppRegistry.registerComponent('AwesomeProject', () => HelloWorldApp);
+const HomeScreen = () => (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>You had me at Hello World.</Text>
+  </View>
+);
+
+const ProfileScreen = () => (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>History</Text>
+  </View>
+);
+
+const AnotherScreen = () => (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>History</Text>
+  </View>
+);
+
+const RootTabs = TabNavigator({
+  Home: {
+    screen: SearchScreen,
+  },
+  Profile: {
+    screen: ProfileScreen,
+  }
+});
+
+export default RootTabs;

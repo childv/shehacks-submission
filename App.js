@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
-import { AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+import { TabNavigator } from 'react-navigation';
 
 import SearchHandler from './SearchHandler';
+import SearchScreen from './searchscreen';
+
+
 
 class App extends Component {
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.description}>Hello Janis!</Text>
       </View>
     );
   }
 }
 
+
 const style = StyleSheet.create({
-    header: {
-        ...Platform.select({
-           android: {
-           backgroundColor: '#e1e8ee',
-           }
-        })
-    },
-    indicator: {
-        backgroundColor: '#0B5091'
-    },
     container: {
       ...StyleSheet.absoluteFillObject,
       flex: 1,
@@ -37,42 +31,65 @@ const style = StyleSheet.create({
       color: 'navy',
       marginTop: 10,
   },
+  pretty: {
+    flex: 3,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 })
 
-
-//start JANIS HAS NO IDEA WHAT SHE'S DOING
-
-import { TabNavigator } from 'react-navigation';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
+// TABS 
 const HomeScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>You had me at Hello World.</Text>
+  <View style={style.pretty}>
+    <Text>Buy Bulk Buddy
+    </Text>
+    <View>
+
+    </View>
   </View>
 );
 
-const ProfileScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>History</Text>
+const HelpScreen = () => (
+  <View style={style.pretty}>
+    <Text>What can your Bulk Buddy order for you today?</Text>
+    <Button
+      onPress={() => {
+      Alert.alert('Try again buddy!');
+      }}
+    title="Search"
+    />
   </View>
 );
 
-const AnotherScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>History</Text>
+const ConnectScreen = () => (
+  <View style={style.pretty}>
+    <Text>Connect with others ordering the same item.</Text>
+  </View>
+);
+
+const HistoryScreen = () => (
+  <View style={style.pretty}>
+    <Text>Order History</Text>
   </View>
 );
 
 const RootTabs = TabNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: HelpScreen,
   },
-  Profile: {
-    screen: SearchHandler,
-  }
+  Search: {
+    screen: SearchScreen,
+  },
+  Connect: {
+    screen: ConnectScreen,
+  },
+  History: {
+    screen: HistoryScreen
+  },
 });
 
 export default RootTabs;
 
-//skip this line if using Create React Native App
-//AppRegistry.registerComponent('AwesomeProject', () => HelloWorldApp);
+
+
+// FACEBOOK LOGIN

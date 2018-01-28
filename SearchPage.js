@@ -13,28 +13,26 @@ import {
 
 export default class SearchPage extends Component<{}> {
 	static navigationOptions = {
-		title: 'Property Finder',
+		title: 'Bulk Buy Buddie',
 	};
 
 	render(){
 		return (
 			<View style={styles.container}>
 			<Text style={styles.description}>
-				Search for houses to buy!
-			</Text>
-			<Text style={styles.description}>
-				Search by place-name or postcode.
+				Search for items to buy in bulk!
 			</Text>
 			<View style={styles.flowRight}>
 				<TextInput underlineColorAndroid={'transparent'}
 					style={styles.searchInput}
-					placeholder='Search via name or postcode'/>
+					placeholder='Search your desired item'/>
 				<Button
 					onPress={() => {}}
 					color='#48BBEC'
 					title='Go'
 				/>
 			</View>
+				<Image source={require('./Resources/soCute.jpg')} style={styles.image}/>
 			</View>
 		);
 	}
@@ -67,5 +65,9 @@ const styles = StyleSheet.create({
 		borderColor: '#48BBEC',
 		borderRadius: 8,
 		color: '#48BBEC'
+	},
+	image: {
+		width: 217,
+		height: 138,
 	},
 });

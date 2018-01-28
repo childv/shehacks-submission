@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+//import { AsyncStorage, Platform, StyleSheet, Text, View, TextInput } from 'react-native';
+import { TabNavigator } from 'react-navigation';
+
+//import SearchHandler from './SearchHandler';
+//import SearchScreen from './searchscreen';
+
+
 
 class App extends Component {
   render() {
@@ -11,17 +18,8 @@ class App extends Component {
   }
 }
 
+
 const style = StyleSheet.create({
-    header: {
-        ...Platform.select({
-           android: {
-           backgroundColor: '#e1e8ee',
-           }
-        })
-    },
-    indicator: {
-        backgroundColor: '#0B5091'
-    },
     container: {
       ...StyleSheet.absoluteFillObject,
       flex: 1,
@@ -34,13 +32,14 @@ const style = StyleSheet.create({
       color: 'navy',
       marginTop: 10,
   },
-  pretty: {flex: 3, alignItems: 'center', justifyContent: 'center' },
-
+  pretty: {
+    flex: 3,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 })
 
 // TABS 
-
-import { TabNavigator } from 'react-navigation';
 
 const HomeScreen = () => (
   <View style={style.pretty}>
@@ -55,7 +54,7 @@ const HomeScreen = () => (
   </View>
 );
 
-const SearchScreen = () => (
+const HelpScreen = () => (
   <View style={style.pretty}>
     <Text>What can your Bulk Buddy order for you today?</Text>
     <Button
@@ -81,13 +80,13 @@ const HistoryScreen = () => (
 
 const RootTabs = TabNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: HelpScreen,
   },
   Search: {
-    screen: SearchScreen,
+    screen: HelpScreen,
   },
   Connect: {
-    screen: ConnectScreen
+    screen: ConnectScreen,
   },
   History: {
     screen: HistoryScreen
@@ -99,7 +98,3 @@ export default RootTabs;
 
 
 // FACEBOOK LOGIN
-
-
-//skip this line if using Create React Native App
-//AppRegistry.registerComponent('AwesomeProject', () => HelloWorldApp);

@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
 import { TabNavigator } from 'react-navigation';
-
 import SearchHandler from './SearchHandler';
 import SearchScreen from './searchscreen';
-
 
 
 class App extends Component {
@@ -41,23 +39,14 @@ const style = StyleSheet.create({
 // TABS 
 const HomeScreen = () => (
   <View style={style.pretty}>
-    <Text>Buy Bulk Buddy
-    </Text>
+    <Text>
+    Buy Bulk Buddy</Text>
     <View>
-
+      <Image
+        source={require('./my-icon.png')}
+        style={{width: 300, height: 250}}
+      />
     </View>
-  </View>
-);
-
-const HelpScreen = () => (
-  <View style={style.pretty}>
-    <Text>What can your Bulk Buddy order for you today?</Text>
-    <Button
-      onPress={() => {
-      Alert.alert('Try again buddy!');
-      }}
-    title="Search"
-    />
   </View>
 );
 
@@ -75,8 +64,7 @@ const HistoryScreen = () => (
 
 const RootTabs = TabNavigator({
   Home: {
-    //screen: HelpScreen,
-    screen: SearchHandler,
+    screen: HomeScreen,
   },
   Search: {
     screen: SearchScreen,

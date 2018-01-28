@@ -5,7 +5,7 @@ import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } 
 import { TabNavigator } from 'react-navigation';
 
 //import SearchHandler from './SearchHandler';
-//import SearchScreen from './searchscreen';
+import SearchScreen from './searchscreen';
 
 
 
@@ -46,10 +46,7 @@ const HomeScreen = () => (
     <Text>Buy Bulk Buddy
     </Text>
     <View>
-        <Image 
-        style={{width: 300, height: 300}}
-        source={require('./my-icon.png')}
-        />
+
     </View>
   </View>
 );
@@ -83,7 +80,7 @@ const RootTabs = TabNavigator({
     screen: HelpScreen,
   },
   Search: {
-    screen: HelpScreen,
+    screen: SearchScreen,
   },
   Connect: {
     screen: ConnectScreen,

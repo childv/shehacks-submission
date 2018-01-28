@@ -1,17 +1,25 @@
+'use strict';
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+
 import SearchHandler from './SearchHandler';
 import SearchScreen from './searchscreen';
+import SearchPage from './SearchPage';
+
+// const App = StackNavigator({
+// 		Home: { screen: SearchPage },
+// 	});
+
+// export default App;
 
 
 class App extends Component {
   render() {
     return (
-      <View style={style.container}>
-      </View>
+      <RootTabs/>
     );
   }
 }
@@ -122,7 +130,7 @@ const RootTabs = TabNavigator({
   },
 });
 
-export default RootTabs;
+export default App;
 
 
 

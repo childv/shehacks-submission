@@ -75,7 +75,8 @@ const HistoryScreen = () => (
 
 const RootTabs = TabNavigator({
   Home: {
-    screen: HelpScreen,
+    //screen: HelpScreen,
+    screen: SearchHandler,
   },
   Search: {
     screen: SearchScreen,

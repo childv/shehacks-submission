@@ -1,21 +1,5 @@
 {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null
-=======
-<<<<<<< HEAD
->>>>>>> 4bf1ea4637341acc82ab3a647c5953267945c06c
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-<<<<<<< HEAD
-  "packagerPid": 43154
-=======
-  "packagerPid": 66031
->>>>>>> 06df4c89a2571a9d2d48359f4ac518289f8d34f0
->>>>>>> 6ab4cfa6fef8f53c7388ff31db3164349aeb91f3
->>>>>>> b80723e1c4cbe440fdc3909284d0c5cb07d56874
->>>>>>> 4bf1ea4637341acc82ab3a647c5953267945c06c
+  "packagerPort": 19004,
+  "packagerPid": 43985
 }

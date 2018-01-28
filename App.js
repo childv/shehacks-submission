@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Font, AppLoading, Asset } from 'expo';
 import { Image, Alert, Button, AsyncStorage, Platform, StyleSheet, Text, View } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { TabNavigator } from 'react-navigation';
 import SearchHandler from './SearchHandler';
 import SearchScreen from './searchscreen';
@@ -65,15 +66,59 @@ const HistoryScreen = () => (
 const RootTabs = TabNavigator({
   Home: {
     screen: HomeScreen,
+    navigationOptions: {
+      tabBarLabel: 'Home',
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon
+          name="ion-home"
+          type="ionicon"
+          size={20}
+          color={focused ? "#0B5091" : "#d3d3d3"}
+        />
+      ),
+    }
   },
   Search: {
     screen: SearchScreen,
+    navigationOptions: {
+      tabBarLabel: 'Search',
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon
+          name="ion-search"
+          type="ionicon"
+          size={20}
+          color={focused ? "#0B5091" : "#d3d3d3"}
+        />
+      ),
+    }
   },
   Connect: {
     screen: ConnectScreen,
+    navigationOptions: {
+      tabBarLabel: 'Connect',
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon
+          name="ion-ios-people"
+          type="ionicon"
+          size={20}
+          color={focused ? "#0B5091" : "#d3d3d3"}
+        />
+      ),
+    }
   },
   History: {
-    screen: HistoryScreen
+    screen: HistoryScreen,
+    navigationOptions: {
+      tabBarLabel: 'History',
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Icon
+          name="ion-ios-book"
+          type="ionicon"
+          size={20}
+          color={focused ? "#0B5091" : "#d3d3d3"}
+        />
+      ),
+    }
   },
 });
 
